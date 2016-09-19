@@ -20,21 +20,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.codemargonda.resepku.MainActivity">
-          </activity>
-        <activity
-            android:name="com.codemargonda.resepku.TambahResepActivity">
-        </activity>
-        <activity
-            android:name="com.codemargonda.resepku.DaftarResepActivity">
-        </activity>
-        <activity
-            android:name="com.codemargonda.resepku.UbahResepActivity">
-        </activity>
-        <activity
-            android:name="com.codemargonda.resepku.DetailResepActivity">
-        </activity>
+        <activity android:name="com.codemargonda.resepku.MainActivity"></activity>
+        <activity android:name="com.codemargonda.resepku.TambahResepActivity"></activity>
+        <activity android:name="com.codemargonda.resepku.DaftarResepActivity"></activity>
+        <activity android:name="com.codemargonda.resepku.UbahResepActivity"></activity>
+        <activity android:name="com.codemargonda.resepku.DetailResepActivity"></activity>
+        <activity android:name="com.codemargonda.resepku.LoginActivity"></activity>
     </application>
 
 </manifest>

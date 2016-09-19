@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.codemargonda.resepku.DetailResepActivity;
 import com.codemargonda.resepku.UbahResepActivity;
 import com.codemargonda.resepku.model.Resep;
+import com.codemargonda.resepku.utils.DatabaseHandler;
 import com.codemargonda.resepmama.R;
 
 import java.io.ByteArrayInputStream;
@@ -89,6 +90,17 @@ public class ResepListAdapter extends RecyclerView.Adapter<ResepListAdapter.MyVi
                 Intent i = new Intent(mContext, DetailResepActivity.class);
                 i.putExtra("ID", resep.getID());
                 mContext.startActivity(i);
+            }
+        });
+
+        holder.bHapus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DatabaseHandler db = new DatabaseHandler(mContext);
+                db.deleteResep(resep);
+                resepList.remove(position);
+                notifyDataSetChanged();
+
             }
         });
 

@@ -139,7 +139,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(KEY_DESKRIPSI_RESEP, resep.getDeskripsi());
         values.put(KEY_GAMBAR_RESEP, resep.getGambar());
 
-        // updating row
+        // update baris
         return db.update(TABLE_RESEP, values, KEY_ID_RESEP + " = ?",
                 new String[] { String.valueOf(resep.getID()) });
     }
