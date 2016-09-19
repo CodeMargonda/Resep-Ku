@@ -12,11 +12,12 @@ public class Resep {
     byte[] _gambar;
 
     // Empty constructor
-    public Resep(){
+    public Resep() {
 
     }
+
     // constructor
-    public Resep(int id, String nama, String _deskripsi, byte[] _gambar){
+    public Resep(int id, String nama, String _deskripsi, byte[] _gambar) {
         this._id = id;
         this._nama = nama;
         this._deskripsi = _deskripsi;
@@ -24,48 +25,49 @@ public class Resep {
     }
 
     // constructor
-    public Resep(String nama, String _deskripsi){
+    public Resep(String nama, String _deskripsi) {
         this._nama = nama;
         this._deskripsi = _deskripsi;
     }
+
     // getting ID
-    public int getID(){
+    public int getID() {
         return this._id;
     }
 
     // setting id
-    public void setID(int id){
+    public void setID(int id) {
         this._id = id;
     }
 
     // getting nama
-    public String getNama(){
+    public String getNama() {
         return this._nama;
     }
 
     // setting nama
-    public void setNama(String nama){
+    public void setNama(String nama) {
         this._nama = nama;
     }
 
     // getting deskripsi
-    public String getDeskripsi(){
+    public String getDeskripsi() {
         return this._deskripsi;
     }
 
     // setting deskripsi
-    public void setDeskripsi(String deskripsi){
+    public void setDeskripsi(String deskripsi) {
         this._deskripsi = deskripsi;
     }
 
 
     // getting gambar
-    public byte[] getGambar(){
+    public byte[] getGambar() {
         return this._gambar;
     }
 
     // setting gambar
-    public void setGambar(byte[] gambar){
+    public void setGambar(byte[] gambar) {
         this._gambar = gambar;
     }
 }

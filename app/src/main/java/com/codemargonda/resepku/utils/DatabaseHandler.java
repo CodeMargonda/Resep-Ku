@@ -95,7 +95,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     // Get Semua Resep
     public List<Resep> getAllResep() {
-        List<Resep> resepList = new ArrayList<Resep>();
+        List<Resep> resepList = new ArrayList<>();
         // Select All Query
         String selectQuery = "SELECT  * FROM " + TABLE_RESEP;
 

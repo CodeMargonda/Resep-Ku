@@ -10,19 +10,27 @@ import com.codemargonda.resepmama.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button tambah;
+    Button tambah, lihat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        tambah = (Button) findViewById(R.id.button);
+        tambah = (Button) findViewById(R.id.bTambah);
+        lihat = (Button) findViewById(R.id.bLihat);
 
 
         tambah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(MainActivity.this, TambahResepActivity.class );
+                startActivity(i);
+            }
+        });
+        lihat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, DaftarResepActivity.class );
                 startActivity(i);
             }
         });

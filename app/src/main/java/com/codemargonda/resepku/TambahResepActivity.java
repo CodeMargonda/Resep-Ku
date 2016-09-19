@@ -20,12 +20,12 @@ import java.io.IOException;
 
 public class TambahResepActivity extends AppCompatActivity {
 
-EditText etNamaResep, etDeskripsi;
+    EditText etNamaResep, etDeskripsi;
     DatabaseHandler db;
     Resep resep;
     Button bTambah, bGambar;
     ImageView imgGambar;
-    private Bitmap bitmap;
+    private Bitmap bitmap = null;
     private Uri filePath;
     private int PICK_IMAGE_REQUEST = 1;
 
@@ -37,8 +37,8 @@ EditText etNamaResep, etDeskripsi;
         db = new DatabaseHandler(this);
         resep = new Resep();
 
-        etNamaResep = (EditText) findViewById( R.id.etNama);
-        etDeskripsi = (EditText) findViewById( R.id.etDeskripsi);
+        etNamaResep = (EditText) findViewById(R.id.etNama);
+        etDeskripsi = (EditText) findViewById(R.id.etDeskripsi);
         bTambah = (Button) findViewById(R.id.bTambah);
         bGambar = (Button) findViewById(R.id.bGambar);
 
@@ -66,7 +66,6 @@ EditText etNamaResep, etDeskripsi;
     }
 
 
-
     public void showFileChooser() {
         Intent intent = new Intent();
         intent.setType("image/*");
@@ -92,15 +91,15 @@ EditText etNamaResep, etDeskripsi;
     }
 
 
-    public byte[] getImageByte(Bitmap bitmap){
+    public byte[] getImageByte(Bitmap bitmap) {
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
-
-        byte imageInByte[] = stream.toByteArray();
-        return  imageInByte;
+        byte imageInByte[]=null;
+        if(bitmap!=null) {
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+            imageInByte=stream.toByteArray();
+        }
+        return imageInByte;
     }
 
 
-
-
-    }
+}
