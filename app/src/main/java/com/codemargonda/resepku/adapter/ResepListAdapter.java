@@ -1,15 +1,19 @@
 package com.codemargonda.resepku.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.codemargonda.resepku.DetailResepActivity;
+import com.codemargonda.resepku.UbahResepActivity;
 import com.codemargonda.resepku.model.Resep;
 import com.codemargonda.resepmama.R;
 
@@ -33,17 +37,22 @@ public class ResepListAdapter extends RecyclerView.Adapter<ResepListAdapter.MyVi
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView tNama;
         public ImageView imgGambar;
+        public Button bUbah, bHapus, bLihat;
 
 
         public MyViewHolder(View view) {
             super(view);
             tNama = (TextView) view.findViewById(R.id.tNama);
             imgGambar = (ImageView) view.findViewById(R.id.imgGambar);
+            bUbah = (Button) view.findViewById(R.id.bUbah);
+            bHapus = (Button) view.findViewById(R.id.bHapus);
+            bLihat = (Button) view.findViewById(R.id.bLihat);
         }
     }
 
 
-    public ResepListAdapter(List<Resep> resepList) {
+    public ResepListAdapter(Context context, List<Resep> resepList) {
+        this.mContext = context;
         this.resepList = resepList;
     }
 
@@ -58,12 +67,31 @@ public class ResepListAdapter extends RecyclerView.Adapter<ResepListAdapter.MyVi
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
-        Resep resep = resepList.get(position);
+        final Resep resep = resepList.get(position);
         holder.tNama.setText(resep.getNama());
 
-        if(bitmap(resep.getGambar())!=null){
+        if (bitmap(resep.getGambar()) != null) {
             holder.imgGambar.setImageBitmap(bitmap(resep.getGambar()));
         }
+
+        holder.bUbah.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(mContext, UbahResepActivity.class);
+                i.putExtra("ID", resep.getID());
+                mContext.startActivity(i);
+            }
+        });
+
+        holder.bLihat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(mContext, DetailResepActivity.class);
+                i.putExtra("ID", resep.getID());
+                mContext.startActivity(i);
+            }
+        });
+
     }
 
 

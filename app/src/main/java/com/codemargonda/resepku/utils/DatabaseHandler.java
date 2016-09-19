@@ -131,7 +131,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     // Update satu resep
-    public int updateContact(Resep resep) {
+    public int updateResep(Resep resep) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();

@@ -2,6 +2,7 @@ package com.codemargonda.resepku;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -16,10 +17,11 @@ import com.codemargonda.resepku.model.Resep;
 import com.codemargonda.resepku.utils.DatabaseHandler;
 import com.codemargonda.resepmama.R;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
-public class TambahResepActivity extends AppCompatActivity {
+public class UbahResepActivity extends AppCompatActivity {
 
     EditText etNamaResep, etDeskripsi;
     DatabaseHandler db;
@@ -29,32 +31,24 @@ public class TambahResepActivity extends AppCompatActivity {
     private Bitmap bitmap = null;
     private Uri filePath;
     private int PICK_IMAGE_REQUEST = 1;
-
+    int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tambah_resep);
-        db = new DatabaseHandler(this);
-        resep = new Resep();
 
-        etNamaResep = (EditText) findViewById(R.id.etNama);
-        etDeskripsi = (EditText) findViewById(R.id.etDeskripsi);
-        bTambah = (Button) findViewById(R.id.bTambah);
-        bGambar = (Button) findViewById(R.id.bGambar);
+        initForm();
 
-        imgGambar = (ImageView) findViewById(R.id.imgGambar);
 
         bTambah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 resep.setNama(etNamaResep.getText().toString());
                 resep.setDeskripsi(etDeskripsi.getText().toString());
                 resep.setGambar(getImageByte(bitmap));
-                db.addResep(resep);
-                Toast.makeText(getApplicationContext(),"Berhasil ditambahakan",Toast.LENGTH_LONG);
-
+                db.updateResep(resep);
+                Toast.makeText(getApplicationContext(),"Berhasil diubah",Toast.LENGTH_LONG);
             }
         });
 
@@ -68,6 +62,23 @@ public class TambahResepActivity extends AppCompatActivity {
 
     }
 
+    void initForm(){
+        id=getIntent().getIntExtra("ID",0);
+        db = new DatabaseHandler(this);
+        resep =   db.getResep(id);
+
+        etNamaResep = (EditText) findViewById(R.id.etNama);
+        etDeskripsi = (EditText) findViewById(R.id.etDeskripsi);
+        bTambah = (Button) findViewById(R.id.bTambah);
+        bGambar = (Button) findViewById(R.id.bGambar);
+        imgGambar = (ImageView) findViewById(R.id.imgGambar);
+
+        etNamaResep.setText(resep.getNama());
+        etDeskripsi.setText(resep.getDeskripsi());
+        if(resep.getGambar()!=null) {
+            imgGambar.setImageBitmap(bitmap(resep.getGambar()));
+        }
+    }
 
     public void showFileChooser() {
         Intent intent = new Intent();
@@ -102,6 +113,18 @@ public class TambahResepActivity extends AppCompatActivity {
             imageInByte=stream.toByteArray();
         }
         return imageInByte;
+    }
+
+    public Bitmap bitmap(byte[] byteImage) {
+        byte[] outImage = byteImage;
+        Bitmap image;
+        if (outImage != null) {
+            ByteArrayInputStream imageStream = new ByteArrayInputStream(outImage);
+            image = BitmapFactory.decodeStream(imageStream);
+        } else {
+            image = null;
+        }
+        return image;
     }
 
 

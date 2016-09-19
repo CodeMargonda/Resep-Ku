@@ -29,6 +29,12 @@
         <activity
             android:name="com.codemargonda.resepku.DaftarResepActivity">
         </activity>
+        <activity
+            android:name="com.codemargonda.resepku.UbahResepActivity">
+        </activity>
+        <activity
+            android:name="com.codemargonda.resepku.DetailResepActivity">
+        </activity>
     </application>
 
 </manifest>

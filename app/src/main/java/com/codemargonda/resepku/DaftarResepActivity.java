@@ -30,7 +30,7 @@ RecyclerView rv;
         setContentView(R.layout.activity_daftar_resep);
         db = new DatabaseHandler(this);
         rv = (RecyclerView) findViewById(R.id.rvResep);
-        adapter = new ResepListAdapter(resepList);
+        adapter = new ResepListAdapter(this, resepList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         rv.setLayoutManager(mLayoutManager);
         rv.setItemAnimator(new DefaultItemAnimator());
