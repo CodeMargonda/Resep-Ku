@@ -80,13 +80,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     // Get satu resep
     public Resep getResep(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
-
-        Cursor cursor = db.query(TABLE_RESEP, new String[] { KEY_ID_RESEP,
-                        KEY_NAMA_RESEP, KEY_DESKRIPSI_RESEP, KEY_GAMBAR_RESEP }, KEY_ID_RESEP + "=?",
-                new String[] { String.valueOf(id) }, null, null, null, null);
+        String selectQuery = "SELECT * FROM "+TABLE_RESEP+" WHERE "+KEY_ID_RESEP+" ="+id;
+        Cursor cursor = db.rawQuery(selectQuery,null);
         if (cursor != null)
             cursor.moveToFirst();
-
         Resep resep = new Resep(Integer.parseInt(cursor.getString(0)),
                 cursor.getString(1), cursor.getString(2),  cursor.getBlob(3));
         // return resep
