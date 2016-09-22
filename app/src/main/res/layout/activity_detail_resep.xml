@@ -2,52 +2,52 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-android:weightSum="100"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:weightSum="100">
 
     <RelativeLayout
-        android:layout_weight="40"
         android:layout_width="match_parent"
-        android:layout_height="0dp">
+        android:layout_height="0dp"
+        android:layout_weight="40">
 
         <ImageView
 
+            android:id="@+id/imgGambar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/bg_splash"
             android:scaleType="centerCrop"
-            android:id="@+id/imgGambar" />
+            android:src="@drawable/bg_splash" />
 
         <TextView
             android:id="@+id/tNama"
-            android:background="@color/darkoverlay"
-            android:textColor="@android:color/white"
-            android:text="masakan lezat"
-            android:padding="10dp"
-            android:textAllCaps="true"
-            android:textSize="20sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@color/darkoverlay"
+            android:padding="10dp"
+            android:text="masakan lezat"
+            android:textAllCaps="true"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
 
     </RelativeLayout>
 
 
     <ScrollView
-        android:layout_weight="60"
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:id="@+id/scrollView" >
+        android:layout_weight="60">
 
         <TextView
-            android:gravity="top"
+            android:id="@+id/tDeskripsi"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/tDeskripsi"
+            android:gravity="top"
 
-          />
+            />
     </ScrollView>
 
 

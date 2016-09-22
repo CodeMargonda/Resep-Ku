@@ -53,7 +53,8 @@ public class TambahResepActivity extends AppCompatActivity {
                 resep.setDeskripsi(etDeskripsi.getText().toString());
                 resep.setGambar(getImageByte(bitmap));
                 db.addResep(resep);
-                Toast.makeText(getApplicationContext(),"Berhasil ditambahakan",Toast.LENGTH_LONG);
+                Toast.makeText(getApplicationContext(),"Berhasil ditambahakan",Toast.LENGTH_LONG).show();
+                finish();
 
             }
         });
@@ -80,7 +81,7 @@ public class TambahResepActivity extends AppCompatActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode==RESULT_OK) {
 
 
             filePath = data.getData();
@@ -103,6 +104,10 @@ public class TambahResepActivity extends AppCompatActivity {
         }
         return imageInByte;
     }
+
+
+
+
 
 
 }

@@ -8,14 +8,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.codemargonda.resepku.DetailResepActivity;
-import com.codemargonda.resepku.UbahResepActivity;
 import com.codemargonda.resepku.model.Resep;
-import com.codemargonda.resepku.utils.DatabaseHandler;
 import com.codemargonda.resepmama.R;
 
 import java.io.ByteArrayInputStream;
@@ -38,16 +35,14 @@ public class ResepListAdapter extends RecyclerView.Adapter<ResepListAdapter.MyVi
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView tNama;
         public ImageView imgGambar;
-        public Button bUbah, bHapus, bLihat;
+
 
 
         public MyViewHolder(View view) {
             super(view);
             tNama = (TextView) view.findViewById(R.id.tNama);
             imgGambar = (ImageView) view.findViewById(R.id.imgGambar);
-            bUbah = (Button) view.findViewById(R.id.bUbah);
-            bHapus = (Button) view.findViewById(R.id.bHapus);
-            bLihat = (Button) view.findViewById(R.id.bLihat);
+
         }
     }
 
@@ -62,7 +57,17 @@ public class ResepListAdapter extends RecyclerView.Adapter<ResepListAdapter.MyVi
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_resep, parent, false);
 
-        MyViewHolder viewHolder = new MyViewHolder(itemView);
+        final MyViewHolder viewHolder = new MyViewHolder(itemView);
+
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int position = viewHolder.getAdapterPosition();
+                Intent i = new Intent(mContext, DetailResepActivity.class);
+                i.putExtra("ID", resepList.get(position).getID());
+                mContext.startActivity(i);
+            }
+        });
         return viewHolder;
     }
 
@@ -75,34 +80,9 @@ public class ResepListAdapter extends RecyclerView.Adapter<ResepListAdapter.MyVi
             holder.imgGambar.setImageBitmap(bitmap(resep.getGambar()));
         }
 
-        holder.bUbah.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(mContext, UbahResepActivity.class);
-                i.putExtra("ID", resep.getID());
-                mContext.startActivity(i);
-            }
-        });
 
-        holder.bLihat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(mContext, DetailResepActivity.class);
-                i.putExtra("ID", resep.getID());
-                mContext.startActivity(i);
-            }
-        });
 
-        holder.bHapus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                DatabaseHandler db = new DatabaseHandler(mContext);
-                db.deleteResep(resep);
-                resepList.remove(position);
-                notifyDataSetChanged();
 
-            }
-        });
 
     }
 

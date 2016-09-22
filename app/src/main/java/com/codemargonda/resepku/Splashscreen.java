@@ -26,7 +26,7 @@ public class Splashscreen extends AppCompatActivity {
             public void run() {
                 Intent i;
                 if(pref.getBoolean("KEEPLOGIN", false)){
-                    i = new Intent(Splashscreen.this,MainActivity.class);
+                    i = new Intent(Splashscreen.this,DaftarResepActivity.class);
                 }
                 else{
                     i = new Intent(Splashscreen.this, LoginActivity.class);

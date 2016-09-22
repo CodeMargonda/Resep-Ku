@@ -2,60 +2,32 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:weightSum="100"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:weightSum="100">
+
     <RelativeLayout
-        android:layout_height="150dp"
-        android:layout_weight="80"
-        android:layout_width="0dp"
-        >
-    <ImageView
-        android:id="@id/imgGambar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/bg_splash"
-        android:scaleType="centerCrop"
-        />
+        android:layout_height="150dp"
+    >
+
+        <ImageView
+            android:id="@id/imgGambar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/bg_splash" />
 
         <TextView
             android:id="@+id/tNama"
-            android:background="@color/darkoverlay"
-            android:textColor="@android:color/white"
-            android:text="masakan lezat"
-            android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:background="@color/darkoverlay"
+            android:padding="10dp"
+            android:text="masakan lezat"
+            android:textColor="@android:color/white" />
     </RelativeLayout>
-    <LinearLayout
-        android:weightSum="3"
-        android:layout_weight="20"
-        android:orientation="vertical"
-        android:layout_width="0dp"
-        android:background="@color/darkoverlay"
-        android:layout_height="match_parent">
-
-        <Button
-            android:id="@+id/bLihat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Lihat"
-            />
-
-        <Button
-            android:id="@+id/bHapus"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Hapus"
-            />
-        <Button
-            android:id="@+id/bUbah"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Ubah"
-            />
-    </LinearLayout>
 
 </LinearLayout>

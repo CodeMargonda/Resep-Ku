@@ -1,53 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <ImageView
-        android:src="@drawable/bg_splash"
+        android:id="@+id/imageView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:id="@+id/imageView2" />
+        android:src="@drawable/bg_splash" />
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:weightSum="1"
+        android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true">
+        android:orientation="vertical"
+        android:weightSum="1">
 
         <ImageView
-            android:layout_margin="10dp"
+            android:id="@+id/imageView"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:id="@+id/imageView"
-            android:src="@drawable/logo_resepku"
             android:layout_gravity="center"
-            android:layout_weight="0.31" />
+            android:layout_margin="10dp"
+            android:layout_weight="0.31"
+            android:src="@drawable/logo_resepku" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="@color/colorPrimary"/>
+            android:background="@color/colorPrimary" />
 
         <TextView
+            android:id="@+id/textView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="60sp"
-            android:textColor="@color/colorPrimary"
-            android:text="@string/app_name"
+            android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
-            android:id="@+id/textView9"
+            android:text="@string/app_name"
             android:textAllCaps="true"
-            android:textStyle="bold"
-            android:layout_marginBottom="10dp"/>
+            android:textColor="@color/colorPrimary"
+            android:textSize="60sp"
+            android:textStyle="bold" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="@color/colorPrimary"/>
+            android:background="@color/colorPrimary" />
     </LinearLayout>
 
 </RelativeLayout>

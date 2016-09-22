@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
                     }
                     editor.putString("USERNAME", USERNAME);
                     editor.commit();
-                    Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                    Intent i = new Intent(LoginActivity.this, DaftarResepActivity.class);
                     startActivity(i);
                     finish();
                 }

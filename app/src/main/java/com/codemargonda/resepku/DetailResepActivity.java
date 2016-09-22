@@ -1,9 +1,12 @@
 package com.codemargonda.resepku;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -63,6 +66,34 @@ public class DetailResepActivity extends AppCompatActivity {
             image = null;
         }
         return image;
+    }
+
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.update_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+        if (id == R.id.ubah_resep) {
+            Intent i = new Intent(DetailResepActivity.this, UbahResepActivity.class);
+            i.putExtra("ID", resep.getID());
+            startActivity(i);
+            return true;
+        }
+        if (id == R.id.hapus_resep) {
+            db.deleteResep(resep);
+            Intent i = new Intent(DetailResepActivity.this, DaftarResepActivity.class);
+            startActivity(i);
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 
