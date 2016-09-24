@@ -7,8 +7,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-    >
+        android:layout_height="150dp">
 
         <ImageView
             android:id="@id/imgGambar"
@@ -17,17 +16,36 @@
             android:scaleType="centerCrop"
             android:src="@drawable/bg_splash" />
 
-        <TextView
-            android:id="@+id/tNama"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:background="@color/darkoverlay"
-            android:padding="10dp"
-            android:text="masakan lezat"
-            android:textColor="@android:color/white" />
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tNama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:background="@color/darkoverlay"
+                android:padding="10dp"
+                android:text="masakan lezat"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/tNama2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:background="@color/darkoverlay"
+                android:padding="10dp"
+                android:text="masakan lezat"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
     </RelativeLayout>
 
 </LinearLayout>
