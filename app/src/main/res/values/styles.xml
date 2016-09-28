@@ -8,4 +8,8 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="CustomEditText" parent="Base.Widget.AppCompat.EditText">
+        <item name="android:textColorHint">@color/colorPrimary</item>
+    </style>
+
 </resources>

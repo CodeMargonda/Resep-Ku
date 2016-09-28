@@ -7,19 +7,21 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp">
+        android:layout_height="250dp">
 
         <ImageView
             android:id="@id/imgGambar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:src="@drawable/bg_splash" />
+            android:src="@drawable/nasicampurbali" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="125dp"
+            android:gravity="bottom"
             android:layout_alignParentBottom="true"
+            android:background="@drawable/shape_title"
             android:orientation="vertical">
 
             <TextView
@@ -29,23 +31,37 @@
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:background="@color/darkoverlay"
-                android:padding="10dp"
-                android:text="masakan lezat"
-                android:textColor="@android:color/white" />
+                android:paddingTop="10dp"
+                android:paddingLeft="10dp"
+                android:textSize="24sp"
+                android:text="Nasi Campur Bali"
+                android:textColor="@android:color/white"
+                android:fontFamily="sans-serif-condensed"/>
 
             <TextView
-                android:id="@+id/tNama2"
+                android:id="@+id/tPembuat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:background="@color/darkoverlay"
-                android:padding="10dp"
-                android:text="masakan lezat"
+                android:paddingTop="5dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:textSize="14sp"
+                android:text="Gungde Aditya"
                 android:textColor="@android:color/white" />
         </LinearLayout>
+
+        <ImageView
+            android:id="@id/imgGambar"
+            android:layout_margin="14dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/favorite"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"/>
     </RelativeLayout>
 
 </LinearLayout>

@@ -6,6 +6,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -45,68 +47,81 @@ public class TambahResepActivity extends AppCompatActivity {
 
         imgGambar = (ImageView) findViewById(R.id.imgGambar);
 
-        bTambah.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+//        bTambah.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                resep.setNama(etNamaResep.getText().toString());
+//                resep.setDeskripsi(etDeskripsi.getText().toString());
+//                resep.setGambar(getImageByte(bitmap));
+//                db.addResep(resep);
+//                Toast.makeText(getApplicationContext(),"Berhasil ditambahakan",Toast.LENGTH_LONG).show();
+//                finish();
+//
+//            }
+//        });
 
-                resep.setNama(etNamaResep.getText().toString());
-                resep.setDeskripsi(etDeskripsi.getText().toString());
-                resep.setGambar(getImageByte(bitmap));
-                db.addResep(resep);
-                Toast.makeText(getApplicationContext(),"Berhasil ditambahakan",Toast.LENGTH_LONG).show();
-                finish();
-
-            }
-        });
-
-        bGambar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showFileChooser();
-            }
-        });
+//        bGambar.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                showFileChooser();
+//            }
+//        });
 
 
     }
 
-
-    public void showFileChooser() {
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Pilih Gambar"), PICK_IMAGE_REQUEST);
+//
+//    public void showFileChooser() {
+//        Intent intent = new Intent();
+//        intent.setType("image/*");
+//        intent.setAction(Intent.ACTION_GET_CONTENT);
+//        startActivityForResult(Intent.createChooser(intent, "Pilih Gambar"), PICK_IMAGE_REQUEST);
+//    }
+//
+//
+//    @Override
+//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if (requestCode == PICK_IMAGE_REQUEST && resultCode==RESULT_OK) {
+//
+//
+//            filePath = data.getData();
+//            try {
+//                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
+//                imgGambar.setImageBitmap(bitmap);
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//    }
+//
+//
+//    public byte[] getImageByte(Bitmap bitmap) {
+//        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+//        byte imageInByte[]=null;
+//        if(bitmap!=null) {
+//            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+//            imageInByte=stream.toByteArray();
+//        }
+//        return imageInByte;
+//    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.submit_menu, menu);
+        return true;
     }
-
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode==RESULT_OK) {
+    public boolean onOptionsItemSelected(MenuItem item) {
 
-
-            filePath = data.getData();
-            try {
-                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
-                imgGambar.setImageBitmap(bitmap);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        int id = item.getItemId();
+        if (id == R.id.submit_resep) {
+            finish();
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
-
-
-    public byte[] getImageByte(Bitmap bitmap) {
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        byte imageInByte[]=null;
-        if(bitmap!=null) {
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
-            imageInByte=stream.toByteArray();
-        }
-        return imageInByte;
-    }
-
-
-
 
 
 
