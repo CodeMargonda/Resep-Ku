@@ -51,6 +51,7 @@ public class TambahResepActivity extends AppCompatActivity {
         bTambah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+<<<<<<< HEAD
 
                 resep.setNama(etNamaResep.getText().toString());
                 resep.setDeskripsi(etDeskripsi.getText().toString());
@@ -78,8 +79,41 @@ public class TambahResepActivity extends AppCompatActivity {
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent, "Pilih Gambar"), PICK_IMAGE_REQUEST);
     }
+=======
+>>>>>>> 0601f0472f04805c79fa83cc50902af1d0e15df0
+
+                resep.setNama(etNamaResep.getText().toString());
+                resep.setDeskripsi(etDeskripsi.getText().toString());
+                resep.setGambar(getImageByte(bitmap));
+                db.addResep(resep);
+                Toast.makeText(getApplicationContext(),"Berhasil ditambahakan",Toast.LENGTH_LONG).show();
+                finish();
+
+<<<<<<< HEAD
+=======
+            }
+        });
+
+        bGambar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showFileChooser();
+            }
+        });
 
 
+    }
+
+
+    public void showFileChooser() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Pilih Gambar"), PICK_IMAGE_REQUEST);
+    }
+
+
+>>>>>>> 0601f0472f04805c79fa83cc50902af1d0e15df0
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
