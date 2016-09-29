@@ -9,7 +9,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 
+import com.codemargonda.resepku.model.User;
+import com.codemargonda.resepku.utils.DatabaseHandler;
 import com.codemargonda.resepmama.R;
 
 /**
@@ -18,36 +21,52 @@ import com.codemargonda.resepmama.R;
 public class LoginActivity extends AppCompatActivity {
     SharedPreferences pref;
     SharedPreferences.Editor editor;
-    EditText etUsername, etPassword;
+    EditText etEmail, etPassword;
     Button bLogin;
+    TextView tSignUp;
     CheckBox cbKeepLogin;
     String USERNAME = "code";
     String PASSWORD = "123";
+    DatabaseHandler db;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        db= new DatabaseHandler(this);
         SharedPreferences pref = getApplicationContext().getSharedPreferences("DATAUSER", 0);
         editor = pref.edit();
 
-        etUsername = (EditText) findViewById(R.id.etUsername);
+        etEmail = (EditText) findViewById(R.id.etEmail);
         etPassword = (EditText) findViewById(R.id.etPassword);
+        tSignUp = (TextView) findViewById(R.id.tSignUp);
         cbKeepLogin = (CheckBox) findViewById(R.id.cbKeepLogin);
         bLogin = (Button) findViewById(R.id.bLogin);
+
+
+        tSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(LoginActivity.this, SignUpActivity.class);
+                startActivity(i);
+
+            }
+        });
 
         bLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (etUsername.getText().toString().equalsIgnoreCase(USERNAME) && etPassword.getText().toString().equals(PASSWORD)) {
+                User user = db.checkUser(etEmail.getText().toString(),etPassword.getText().toString());
+                if (user !=null){
                     if (cbKeepLogin.isChecked()) {
                         editor.putBoolean("KEEPLOGIN", true);
                     }
-                    editor.putString("USERNAME", USERNAME);
+                    editor.putString("NAMAUSER", user.getNama());
                     editor.commit();
                     Intent i = new Intent(LoginActivity.this, DaftarResepActivity.class);
                     startActivity(i);
                     finish();
+
                 }
             }
         });

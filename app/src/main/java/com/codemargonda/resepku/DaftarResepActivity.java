@@ -79,6 +79,7 @@ RecyclerView rv;
             startActivity(i);
             finish();
             return true;
+
         }
         return super.onOptionsItemSelected(item);
     }

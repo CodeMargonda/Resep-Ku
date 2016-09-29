@@ -39,7 +39,7 @@
                 android:fontFamily="sans-serif-condensed"/>
 
             <TextView
-                android:id="@+id/tPembuat"
+               android:id="@+id/tUser"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
@@ -49,17 +49,17 @@
                 android:paddingBottom="10dp"
                 android:paddingLeft="10dp"
                 android:textSize="14sp"
-                android:text="Gungde Aditya"
+                android:text="Pembuat"
                 android:textColor="@android:color/white" />
         </LinearLayout>
 
         <ImageView
-            android:id="@id/imgGambar"
+            android:id="@+id/imgFavorite"
             android:layout_margin="14dp"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/favorite"
+            android:src="@drawable/favorite_off"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"/>
     </RelativeLayout>

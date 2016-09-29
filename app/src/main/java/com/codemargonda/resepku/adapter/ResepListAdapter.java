@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.codemargonda.resepku.DetailResepActivity;
 import com.codemargonda.resepku.model.Resep;
+import com.codemargonda.resepku.utils.DatabaseHandler;
 import com.codemargonda.resepmama.R;
 
 import java.io.ByteArrayInputStream;
@@ -33,15 +34,17 @@ public class ResepListAdapter extends RecyclerView.Adapter<ResepListAdapter.MyVi
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView tNama;
-        public ImageView imgGambar;
+        public TextView tNama, tUser;
+        public ImageView imgGambar, imgFavorit;
 
 
 
         public MyViewHolder(View view) {
             super(view);
             tNama = (TextView) view.findViewById(R.id.tNama);
+            tUser = (TextView) view.findViewById(R.id.tUser);
             imgGambar = (ImageView) view.findViewById(R.id.imgGambar);
+            imgFavorit = (ImageView) view.findViewById(R.id.imgFavorite);
 
         }
     }
@@ -76,9 +79,33 @@ public class ResepListAdapter extends RecyclerView.Adapter<ResepListAdapter.MyVi
         final Resep resep = resepList.get(position);
         holder.tNama.setText(resep.getNama());
 
+        holder.tUser.setText(resep.getUser());
+
         if (bitmap(resep.getGambar()) != null) {
             holder.imgGambar.setImageBitmap(bitmap(resep.getGambar()));
         }
+        if(resep.getFavorit()==1){
+            holder.imgFavorit.setImageDrawable(mContext.getResources().getDrawable(R.drawable.favorite_on));
+        }
+        else{
+            holder.imgFavorit.setImageDrawable(mContext.getResources().getDrawable(R.drawable.favorite_off));
+        }
+        holder.imgFavorit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(resep.getFavorit()==1){
+                   resep.setFavorit(0);
+                }
+                else{
+                    resep.setFavorit(1);
+                }
+                DatabaseHandler db = new DatabaseHandler(mContext);
+                db.updateResep(resep);
+                notifyDataSetChanged();
+
+
+            }
+        });
 
 
 

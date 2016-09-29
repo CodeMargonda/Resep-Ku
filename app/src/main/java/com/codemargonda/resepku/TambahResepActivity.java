@@ -1,6 +1,7 @@
 package com.codemargonda.resepku;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -32,12 +33,14 @@ public class TambahResepActivity extends AppCompatActivity {
     private Bitmap bitmap = null;
     private Uri filePath;
     private int PICK_IMAGE_REQUEST = 1;
+    SharedPreferences pref;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tambah_resep);
+        pref = getApplicationContext().getSharedPreferences("DATAUSER",0);
         db = new DatabaseHandler(this);
         resep = new Resep();
 
@@ -51,46 +54,16 @@ public class TambahResepActivity extends AppCompatActivity {
         bTambah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-<<<<<<< HEAD
+
+
 
                 resep.setNama(etNamaResep.getText().toString());
                 resep.setDeskripsi(etDeskripsi.getText().toString());
                 resep.setGambar(getImageByte(bitmap));
-                db.addResep(resep);
-                Toast.makeText(getApplicationContext(),"Berhasil ditambahakan", Toast.LENGTH_LONG).show();
-                finish();
-            }
-        });
-
-        bGambar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showFileChooser();
-            }
-        });
-
-
-    }
-
-
-    public void showFileChooser() {
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Pilih Gambar"), PICK_IMAGE_REQUEST);
-    }
-=======
->>>>>>> 0601f0472f04805c79fa83cc50902af1d0e15df0
-
-                resep.setNama(etNamaResep.getText().toString());
-                resep.setDeskripsi(etDeskripsi.getText().toString());
-                resep.setGambar(getImageByte(bitmap));
+                resep.setUser(pref.getString("NAMAUSER", null));
                 db.addResep(resep);
                 Toast.makeText(getApplicationContext(),"Berhasil ditambahakan",Toast.LENGTH_LONG).show();
                 finish();
-
-<<<<<<< HEAD
-=======
             }
         });
 
@@ -113,7 +86,6 @@ public class TambahResepActivity extends AppCompatActivity {
     }
 
 
->>>>>>> 0601f0472f04805c79fa83cc50902af1d0e15df0
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

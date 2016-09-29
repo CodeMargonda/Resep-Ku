@@ -22,6 +22,7 @@
         <activity android:name="com.codemargonda.resepku.UbahResepActivity"></activity>
         <activity android:name="com.codemargonda.resepku.DetailResepActivity"></activity>
         <activity android:name="com.codemargonda.resepku.LoginActivity"></activity>
+        <activity android:name="com.codemargonda.resepku.SignUpActivity"></activity>
     </application>
 
 </manifest>

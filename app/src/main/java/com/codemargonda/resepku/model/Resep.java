@@ -10,6 +10,8 @@ public class Resep {
     String _nama;
     String _deskripsi;
     byte[] _gambar;
+    int _favorit;
+    String _user;
 
     // Empty constructor
     public Resep() {
@@ -61,6 +63,18 @@ public class Resep {
     }
 
 
+
+    public int getFavorit() {
+        return this._favorit;
+    }
+
+    // setting id
+    public void setFavorit(int favorit) {
+        this._favorit = favorit;
+    }
+
+
+
     // getting gambar
     public byte[] getGambar() {
         return this._gambar;
@@ -69,5 +83,15 @@ public class Resep {
     // setting gambar
     public void setGambar(byte[] gambar) {
         this._gambar = gambar;
+    }
+
+
+
+    public  String getUser(){
+        return this._user;
+    }
+
+    public void setUser(String user){
+        this._user=user;
     }
 }
