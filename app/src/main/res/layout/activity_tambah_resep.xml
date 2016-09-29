@@ -87,6 +87,7 @@
         <!--android:layout_marginRight="8dp"-->
         <!--android:background="@drawable/shape_btn"/>-->
         <LinearLayout
+            android:id="@+id/bGambar"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
@@ -110,6 +111,33 @@
                 android:text="Ambil Gambar"
                 android:textColor="#fff" />
         </LinearLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/bTambah"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_margin="16dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/shape_btn"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Tambah"
+                android:textColor="#fff" />
+        </LinearLayout>
+
+
 
         <!--<LinearLayout-->
         <!--android:layout_width="0dp"-->
