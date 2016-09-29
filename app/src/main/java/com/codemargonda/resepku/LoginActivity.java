@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.codemargonda.resepku.model.User;
 import com.codemargonda.resepku.utils.DatabaseHandler;
@@ -67,6 +68,11 @@ public class LoginActivity extends AppCompatActivity {
                     startActivity(i);
                     finish();
 
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "Eamil/Password tidak sesuai", Toast.LENGTH_LONG).show();
+                    etEmail.setError("Email tidak sesuai");
+                    etPassword.setError("Password tidak sesuai");
                 }
             }
         });

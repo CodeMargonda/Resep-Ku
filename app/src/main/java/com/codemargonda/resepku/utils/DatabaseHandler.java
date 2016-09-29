@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import com.codemargonda.resepku.model.Resep;
 import com.codemargonda.resepku.model.User;
@@ -197,8 +198,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(selectQuery, null);
         if (cursor != null) {
             cursor.moveToFirst();
-            user = new User();
-            user.setNama(cursor.getString(1));
+            Log.d("CURSO", String.valueOf(cursor.getCount()));
+            if(cursor.getCount()>0) {
+                user = new User();
+                user.setNama(cursor.getString(1));
+            }
         }
         // return user
         return user;
