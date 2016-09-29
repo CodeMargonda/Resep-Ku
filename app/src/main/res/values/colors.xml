@@ -5,4 +5,7 @@
     <color name="colorAccent">#353535</color>
     <color name="darkoverlay">#b4000000</color>
     <color name="lightoverlay">#b4fafafa</color>
+    <color name="colorLoginStart">#CCF57C00</color>
+    <color name="colorLoginCenter">#AAFF9800</color>
+    <color name="colorLoginEnd">#50FF9800</color>
 </resources>

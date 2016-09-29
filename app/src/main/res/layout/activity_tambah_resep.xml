@@ -14,41 +14,39 @@
 
 
         <!--<android.support.design.widget.TextInputLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_margin="10dp">-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_margin="10dp">-->
 
-            <EditText
-                android:id="@+id/etNama"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/colorPrimary"
-                android:fontFamily="sans-serif-light"
-                android:hint="Nama Resep"
-                android:layout_margin="10dp"
-                android:textColor="#fff"
-                android:textColorHint="#fff"
-                android:textSize="20sp" />
+        <EditText
+            android:id="@+id/etNama"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:hint="Nama Resep"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:textSize="20sp" />
         <!--</android.support.design.widget.TextInputLayout>-->
 
         <!--<android.support.design.widget.TextInputLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_margin="10dp">-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_margin="10dp">-->
 
-            <EditText
-                android:id="@+id/etDeskripsi"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/colorPrimary"
-                android:fontFamily="sans-serif-light"
-                android:gravity="top"
-                android:hint="Deskripsi Resep"
-                android:lines="4"
-                android:textColor="#fff"
-                android:layout_margin="10dp"
-                android:textColorHint="#fff"
-                android:textSize="20sp" />
+        <EditText
+            android:id="@+id/etDeskripsi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:gravity="top"
+            android:hint="Deskripsi Resep"
+            android:lines="4"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:textSize="20sp" />
         <!--</android.support.design.widget.TextInputLayout>-->
 
 
@@ -57,7 +55,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="16dp" />
+            android:layout_marginBottom="16dp"
+            />
 
         <!--<LinearLayout-->
         <!--android:layout_width="match_parent"-->
@@ -91,7 +90,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:layout_margin="16dp"
-            android:layout_marginRight="8dp"
+            android:id="@+id/bGambar"
             android:background="@drawable/shape_btn"
             android:gravity="center"
             android:orientation="horizontal"
@@ -110,30 +109,6 @@
                 android:text="Ambil Gambar"
                 android:textColor="#fff" />
         </LinearLayout>
-
-        <!--<LinearLayout-->
-        <!--android:layout_width="0dp"-->
-        <!--android:layout_weight="1"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:orientation="horizontal"-->
-        <!--android:background="@drawable/shape_btn"-->
-        <!--android:gravity="center"-->
-        <!--android:padding="8dp">-->
-        <!--<ImageView-->
-        <!--android:layout_width="24dp"-->
-        <!--android:layout_height="24dp"-->
-        <!--android:src="@drawable/submit"/>-->
-        <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginLeft="8dp"-->
-        <!--android:text="Submit"-->
-        <!--android:fontFamily="sans-serif-condensed"-->
-        <!--android:textColor="#fff"/>-->
-        <!--</LinearLayout>-->
-
-
-        <!--</LinearLayout>-->
 
 
     </LinearLayout>

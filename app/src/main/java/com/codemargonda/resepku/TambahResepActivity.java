@@ -47,65 +47,65 @@ public class TambahResepActivity extends AppCompatActivity {
 
         imgGambar = (ImageView) findViewById(R.id.imgGambar);
 
-//        bTambah.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                resep.setNama(etNamaResep.getText().toString());
-//                resep.setDeskripsi(etDeskripsi.getText().toString());
-//                resep.setGambar(getImageByte(bitmap));
-//                db.addResep(resep);
-//                Toast.makeText(getApplicationContext(),"Berhasil ditambahakan",Toast.LENGTH_LONG).show();
-//                finish();
-//
-//            }
-//        });
+        bTambah.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-//        bGambar.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                showFileChooser();
-//            }
-//        });
+                resep.setNama(etNamaResep.getText().toString());
+                resep.setDeskripsi(etDeskripsi.getText().toString());
+                resep.setGambar(getImageByte(bitmap));
+                db.addResep(resep);
+                Toast.makeText(getApplicationContext(),"Berhasil ditambahakan",Toast.LENGTH_LONG).show();
+                finish();
+
+            }
+        });
+
+        bGambar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showFileChooser();
+            }
+        });
 
 
     }
 
-//
-//    public void showFileChooser() {
-//        Intent intent = new Intent();
-//        intent.setType("image/*");
-//        intent.setAction(Intent.ACTION_GET_CONTENT);
-//        startActivityForResult(Intent.createChooser(intent, "Pilih Gambar"), PICK_IMAGE_REQUEST);
-//    }
-//
-//
-//    @Override
-//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if (requestCode == PICK_IMAGE_REQUEST && resultCode==RESULT_OK) {
-//
-//
-//            filePath = data.getData();
-//            try {
-//                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
-//                imgGambar.setImageBitmap(bitmap);
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//    }
-//
-//
-//    public byte[] getImageByte(Bitmap bitmap) {
-//        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-//        byte imageInByte[]=null;
-//        if(bitmap!=null) {
-//            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
-//            imageInByte=stream.toByteArray();
-//        }
-//        return imageInByte;
-//    }
+
+    public void showFileChooser() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Pilih Gambar"), PICK_IMAGE_REQUEST);
+    }
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode==RESULT_OK) {
+
+
+            filePath = data.getData();
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
+                imgGambar.setImageBitmap(bitmap);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+    public byte[] getImageByte(Bitmap bitmap) {
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        byte imageInByte[]=null;
+        if(bitmap!=null) {
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+            imageInByte=stream.toByteArray();
+        }
+        return imageInByte;
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.submit_menu, menu);

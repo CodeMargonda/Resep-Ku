@@ -2,53 +2,108 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="20dp"
-    android:orientation="vertical">
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_margin="10dp"
-        android:layout_height="wrap_content">
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/etNama"
-        android:hint="Nama Resep"/>
-    </android.support.design.widget.TextInputLayout>
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_margin="10dp"
-        android:layout_height="wrap_content">
-    <EditText
-        android:gravity="top"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/etDeskripsi"
-        android:lines="4"
-        android:hint="Deskripsi Resep"/>
-    </android.support.design.widget.TextInputLayout>
-
-
+    android:orientation="vertical"
+    android:background="@drawable/bg_food">
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#AA000000">
 
-        <Button
-            android:layout_width="wrap_content"
+    <!--<android.support.design.widget.TextInputLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_margin="10dp">-->
+
+        <EditText
+            android:id="@+id/etNama"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ambil Gambar"
-            android:id="@+id/bGambar" />
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:hint="Nama Resep"
+            android:layout_margin="10dp"/>
+    <!--</android.support.design.widget.TextInputLayout>-->
 
-        <ImageView
-            android:layout_width="wrap_content"
+    <!--<android.support.design.widget.TextInputLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_margin="10dp">-->
+
+        <EditText
+            android:id="@+id/etDeskripsi"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/imgGambar"
-            android:layout_gravity="center_horizontal" />
-    </LinearLayout>
+            android:gravity="top"
+            android:textColorHint="#fff"
+            android:textColor="#fff"
+            android:hint="Deskripsi Resep"
+            android:lines="4"
+            android:layout_margin="10dp"/>
+    <!--</android.support.design.widget.TextInputLayout>-->
 
-    <Button
+    <ImageView
+        android:id="@+id/imgGambar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tambahkan!"
-        android:id="@+id/bTambah" />
+        android:layout_gravity="center_horizontal" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_margin="16dp">
+
+        <LinearLayout
+            android:id="@+id/bGambar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_btn"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/gallery_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Ambil Gambar"
+                android:textColor="#fff" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bTambah"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shape_btn"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/submit" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Submit"
+                android:textColor="#fff" />
+        </LinearLayout>
+    </LinearLayout>
+
+    </LinearLayout>
 </LinearLayout>
