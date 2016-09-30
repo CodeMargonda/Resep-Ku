@@ -141,6 +141,36 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return resepList;
     }
 
+
+    public List<Resep> getFavoritResep() {
+        List<Resep> resepList = new ArrayList<>();
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + TABLE_RESEP+" WHERE "+KEY_FAVORIT+" = "+1;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping pada setiap baris hasil query kemudian menambahknnya pada resepList
+        if (cursor.moveToFirst()) {
+            do {
+                Resep resep = new Resep();
+                resep.setID(Integer.parseInt(cursor.getString(0)));
+                resep.setNama(cursor.getString(1));
+                resep.setDeskripsi(cursor.getString(2));
+                resep.setGambar(cursor.getBlob(3));
+                resep.setFavorit(cursor.getInt(4));
+                resep.setUser(cursor.getString(5));
+                // Adding contact to list
+                resepList.add(resep);
+            } while (cursor.moveToNext());
+        }
+
+        // return contact list
+        return resepList;
+    }
+
+
+
     // Get jumlah resep
     public int getResepCount() {
         String countQuery = "SELECT  * FROM " + TABLE_RESEP;

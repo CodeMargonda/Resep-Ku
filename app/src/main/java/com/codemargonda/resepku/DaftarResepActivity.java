@@ -10,6 +10,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.codemargonda.resepku.adapter.ResepListAdapter;
 import com.codemargonda.resepku.model.Resep;
@@ -27,6 +29,7 @@ RecyclerView rv;
     ResepListAdapter adapter;
     List<Resep> resepList = new ArrayList<Resep>();
     DatabaseHandler db;
+    TextView tKeterangan;
     SharedPreferences pref;
     SharedPreferences.Editor edit;
 
@@ -40,6 +43,7 @@ RecyclerView rv;
 
         db = new DatabaseHandler(this);
         rv = (RecyclerView) findViewById(R.id.rvResep);
+        tKeterangan =(TextView) findViewById(R.id.tKeterangan);
         adapter = new ResepListAdapter(this, resepList);
       //  RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(DaftarResepActivity.this, 2);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
@@ -53,8 +57,26 @@ RecyclerView rv;
     private void prepareData(){
         resepList.clear();
         resepList.addAll(db.getAllResep());
-      adapter.notifyDataSetChanged();
+        showhideKeterangan();
+        adapter.notifyDataSetChanged();
     }
+
+    private  void prepareFavorit(){
+        resepList.clear();
+        resepList.addAll(db.getFavoritResep());
+        showhideKeterangan();
+        adapter.notifyDataSetChanged();
+    }
+
+    private void showhideKeterangan(){
+        if(resepList.isEmpty()){
+            tKeterangan.setVisibility(View.VISIBLE);
+        }
+        else{
+            tKeterangan.setVisibility(View.GONE);
+        }
+    }
+
 
 
     @Override
@@ -80,6 +102,15 @@ RecyclerView rv;
             finish();
             return true;
 
+        }
+
+
+        if(id==R.id.favorit_resep){
+            prepareFavorit();
+        }
+
+        if(id==R.id.semua_resep){
+            prepareData();
         }
         return super.onOptionsItemSelected(item);
     }
