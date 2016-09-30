@@ -8,9 +8,9 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.codemargonda.resepku.model.Resep;
@@ -26,7 +26,7 @@ public class UbahResepActivity extends AppCompatActivity {
     EditText etNamaResep, etDeskripsi;
     DatabaseHandler db;
     Resep resep;
-    Button bTambah, bGambar;
+    LinearLayout bTambah, bGambar;
     ImageView imgGambar;
     private Bitmap bitmap = null;
     private Uri filePath;
@@ -48,7 +48,8 @@ public class UbahResepActivity extends AppCompatActivity {
                 resep.setDeskripsi(etDeskripsi.getText().toString());
                 resep.setGambar(getImageByte(bitmap));
                 db.updateResep(resep);
-                Toast.makeText(getApplicationContext(),"Berhasil diubah",Toast.LENGTH_LONG);
+                Toast.makeText(getApplicationContext(),"Berhasil diubah",Toast.LENGTH_LONG).show();
+                finish();
             }
         });
 
@@ -69,8 +70,8 @@ public class UbahResepActivity extends AppCompatActivity {
 
         etNamaResep = (EditText) findViewById(R.id.etNama);
         etDeskripsi = (EditText) findViewById(R.id.etDeskripsi);
-        bTambah = (Button) findViewById(R.id.bTambah);
-        bGambar = (Button) findViewById(R.id.bGambar);
+        bTambah = (LinearLayout) findViewById(R.id.bTambah);
+        bGambar = (LinearLayout) findViewById(R.id.bGambar);
         imgGambar = (ImageView) findViewById(R.id.imgGambar);
 
         etNamaResep.setText(resep.getNama());

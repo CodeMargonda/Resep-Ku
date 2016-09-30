@@ -97,4 +97,9 @@ public class DetailResepActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initForm();
+    }
 }
